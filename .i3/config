@@ -62,7 +62,7 @@ for_window [class="Skype"] move container to workspace $tagskpe
 for_window [class="Icedove"] move container to workspace $tagmail
 
 # set mod key
-set $mod Mod1
+set $mod Mod4
  
 # Hide borders
 hide_edge_borders both
@@ -78,21 +78,21 @@ bindsym $mod+Return exec xterm
 bindsym $mod+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec dmenu_run
+bindsym $mod+d exec dmenu_run
 ## Navigation
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+l focus left
+bindsym $mod+k focus down
+bindsym $mod+i focus up
+bindsym $mod+j focus right
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+l move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+i move up
+bindsym $mod+Shift+j move right
 # Move workspaces between monitors
 bindsym $mod+Control+l move workspace to output right
-bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+j move workspace to output left
 # split in horizontal orientation
 bindsym $mod+b split h
 # split in vertical orientation
