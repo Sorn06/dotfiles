@@ -1,0 +1,52 @@
+default dLayout count:2
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+# Aliases
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+
+alias topleft       corner top-left
+alias topright      corner top-right    resize:screenSizeX/2;screenSizeY/2
+alias bottomleft    corner bottom-left  resize:screenSizeX/2;screenSizeY/2
+alias bottomright   corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+# Resize Bindings
+bind l:alt resize +1% +0
+bind h:alt resize -1% +0
+bind k:alt resize +0 -1%
+bind j:alt resize +0 +1%
+bind l:ctrl;alt resize -1% +0 bottom-right
+bind h:ctrl;alt resize +1% +0 bottom-right
+bind k:ctrl;alt resize +0 +1% bottom-right
+bind j:ctrl;alt resize +0 -1% bottom-right
+
+# Move/Corner bindings
+bind f:shift;cmd ${full}
+bind k:shift;cmd ${tophalf}
+bind j:shift;cmd ${bottomhalf}
+bind h:shift;cmd ${lefthalf}
+bind l:shift;cmd ${righthalf}
+bind 1:shift,cmd throw 0
+bind 2:shift,cmd throw 1
+
+# Corner Bindings:
+bind p:shift;cmd ${topright}
+bind n:shift;cmd ${bottomright}
+bind u:shift;cmd ${topleft}
+bind b:shift;cmd ${bottomleft}
+
+# Nudge Bindings
+bind l:shift;alt nudge +1% +0
+bind h:shift;alt nudge -1% +0
+bind k:shift;alt nudge +0 -1%
+bind j:shift;alt nudge +0 +1%
+
+# Focus Bindings
+bind l:cmd;ctrl focus right
+bind h:cmd;ctrl focus left
+bind k:cmd;ctrl focus up
+bind j:cmd;ctrl focus down
