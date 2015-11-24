@@ -10,6 +10,7 @@ alias update-display-setup='xrandr --output VGA1 --auto --right-of LVDS1 && feh 
 alias update='sudo apt-get update; sudo apt-get upgrade; update-vim-plugins'
 alias yolo='sudo apt-get update; sudo apt-get upgrade -y'
 alias update_testing='cd /home/bouet/git/dotfiles/scripts/  && ./install.sh && source ~/.bashrc"'
+alias Make='make; evince master.pdf'
 
 #ls
 export LS_OPTIONS='--color=auto'
