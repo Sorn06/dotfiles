@@ -2,12 +2,12 @@
 mkdir -p ~/.vim/bundle #folder for vim plugins
 mkdir -p ~/.vim/autoload
 # Install Pathogen
-if [ ! -e ~/.vim/autoload/pathogen.vim ]; then
-    echo "installing pathogen.."
-    cd ~/.vim/autoload && { wget https://tpo.pe/pathogen.vim ; cd -; }
-else
-    echo "updating pathogen.."
-    cd ~/.vim/autoload && { rm -f pathogen.vim ; wget https://tpo.pe/pathogen.vim ; }
+if [ ! -e ~/.vim/bundle/Vundle.vim ]; then
+    echo "installing Vundle.."
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#else
+    #echo "updating pathogen.."
+    #cd ~/.vim/autoload && { rm -f pathogen.vim ; wget https://tpo.pe/pathogen.vim ; }
 fi
 
 # Plugins for vim
