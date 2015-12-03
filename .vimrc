@@ -1,4 +1,4 @@
-" URL: http://vim.wikia.com/wiki/Example_vimrc
+" testingtestingURL: http://vim.wikia.com/wiki/Example_vimrc
 " Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
 " Description: A minimal, but feature rich, example .vimrc. If you are a
 "              newbie, basing your first .vimrc on this file is a good choice.
@@ -22,8 +22,44 @@ filetype indent plugin on
  
 " Enable syntax highlighting
 syntax on
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"PLUGINS
+" NERDTREE
+Plugin 'scrooloose/nerdtree'
+
+"GIT PLUGIN
+Plugin 'tpope/vim-fugitive' 
+
+"CTRL P PLUGIN 
+Plugin 'kien/ctrlp.vim'
+
+"Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+ Plugin 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+ let g:UltiSnipsExpandTrigger="<tab>"
+ let g:UltiSnipsJumpForwardTrigger="<c-b>"
+ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+ " ================ Search ===========================
  
- 
+ set incsearch       " Find the next match as we type the search
+ set hlsearch        " Highlight searches by default
+ set ignorecase      " Ignore case when searching...
+ set smartcase       " ...unless we type a capital
+ set nohlsearch      " Noh after search
+
+"
 "------------------------------------------------------------
 " Must have options {{{1
 "
@@ -65,8 +101,24 @@ set hlsearch
 " script, <http://www.vim.org/scripts/script.php?script_id=1876>.
 " set nomodeline
  
- 
-"------------------------------------------------------------
+
+
+"Keybindings ======================
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+
+ cmap w!! w !sudo tee > /dev/null 
+
+
+
+ "Search ===========================
+
+ set incsearch       " Find the next match as we type the search
+ set hlsearch        " Highlight searches by default
+ set ignorecase      " Ignore case when searching...
+ set smartcase       " ...unless we type a capital
+ set nohlsearch      " Noh after search
+
 " Usability options {{{1
 "
 " These are options that users frequently set in their .vimrc. Some of them
@@ -124,7 +176,9 @@ set notimeout ttimeout ttimeoutlen=200
  
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
- 
+"======================== Navigation ========================
+nmap j gj
+nmap k gk
  
 "------------------------------------------------------------
 " Indentation options {{{1
@@ -155,3 +209,19 @@ map Y y$
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+" "filetype plugin on
+" "
+" " Brief help
+" " :PluginList       - lists configured plugins
+" " :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" " :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+" "
+" " see :h vundle for more details or wiki for FAQ
+" " Put your non-Plugin stuff after this line

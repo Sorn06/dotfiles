@@ -13,6 +13,7 @@ set $wschrome w
 set $wsmail m
 set $wsskype comma
 set $wsspotify period
+set $wspdf p
 # Definie tags/names for workspaces
 set $tag1 1
 set $tag2 2
@@ -28,6 +29,7 @@ set $tagchrome chrome
 set $tagmail mail
 set $tagskpe skype
 set $tagspotify spotify
+set $tagpdf pdf
 # switch to workspace
 bindsym $mod+$ws1 workspace $tag1
 bindsym $mod+$ws2 workspace $tag2
@@ -43,6 +45,7 @@ bindsym $mod+$wsskype workspace $tagskpe
 bindsym $mod+$wsmail workspace $tagmail
 bindsym $mod+$wsspotify workspace $tagspotify
 bindsym $mod+$wschrome workspace $tagchrome
+bindsym $mod+$wspdf workspace $tagpdf
 # move focused container to workspace
 bindsym $mod+Shift+$ws1 move container to workspace $tag1
 bindsym $mod+Shift+$ws2 move container to workspace $tag2
@@ -60,6 +63,8 @@ for_window [class="Spotify"] border none, move container to workspace $tagspotif
 for_window [class="chromium"] move container to workspace $tagchrome
 for_window [class="Skype"] move container to workspace $tagskpe
 for_window [class="Icedove"] move container to workspace $tagmail
+assign [class="^Evince$"] "pdf"
+for_window [class="Pdf"] move container to workspace $tagpdf
 
 # set mod key
 set $mod Mod4
@@ -168,11 +173,11 @@ bar {
 #Start at startup
 #exec --no-startup-id i3-msg 'exec spotify'
 #exec --no-startup-id i3-msg 'exec chromeium'
-exec --no-startup-id i3-msg 'exec icedove'
-exec --no-startup-id i3-msg 'exec rescuetime'
-exec --no-startup-id i3-msg 'exec skype'
-exec --no-startup-id i3-msg 'exec redshift -l 57:9 -t 5700:3600 -g 0.8 -m randr'
-exec --no-startup-id dropbox
+#exec --no-startup-id i3-msg 'exec icedove'
+#exec --no-startup-id i3-msg 'exec rescuetime'
+#exec --no-startup-id i3-msg 'exec skype'
+#exec --no-startup-id i3-msg 'exec redshift -l 57:9 -t 5700:3600 -g 0.8 -m randr'
+#exec --no-startup-id dropbox
 exec --no-startup-id eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11, secrets, ssh)
 exec --no-startup-id export SSH_AUTH_SOCK
 # wallpaper
