@@ -31,7 +31,7 @@ alias mgmt='~/scripts/servermgmt.sh'
 alias dmgmt='tmux kill-session -t mgmt'
 
 #Uni
-alias sw='cd ~/git/sw7/report/'
+alias sw='cd ~/documents/gitrepos/sw8/'
 alias swpull='sw; pull;'
 
 #Git
